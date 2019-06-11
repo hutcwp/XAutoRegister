@@ -1,49 +1,34 @@
-apply plugin: 'com.android.library'
+apply plugin: 'java-library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-android {
-    compileSdkVersion 28
-
-
-    defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    compile 'hutcwp:annotation:0.0.1'
+    implementation 'com.squareup:javapoet:1.10.0'
+    compile 'com.google.auto.service:auto-service:1.0-rc2'
+    compile 'hutcwp:xregister-annotation:0.0.1'
 }
 
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+
+version = "${xregister_compiler_version}"
 
 def siteUrl = 'https://github.com/hutcwp/XAutoRegister'
 def gitUrl = 'https://github.com/hutcwp/XAutoRegister.git'
-
-version = "${xregister_api_version}"
 group = "hutcwp"
+
 install {
     repositories.mavenInstaller {
+
         pom {
             project {
+
                 packaging 'aar'
-                name 'xAutoRegister api'
+                name 'xregister-compiler'
                 url siteUrl
+
                 licenses {
                     license {
                         name 'The Apache Software License, Version 2.0'
@@ -52,7 +37,6 @@ install {
                 }
                 developers {
                     developer {
-                        id 'you id'
                         name 'hutcwp'
                         email 'hutcwp@foxmail.com'
                     }
@@ -67,36 +51,33 @@ install {
     }
 }
 
-task sourcesJar(type: Jar) {
+task sourcesJar(type: Jar, dependsOn:classes) {
     classifier = 'sources'
-    from android.sourceSets.main.java.srcDirs
+    from sourceSets.main.allSource
 }
 
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
+task javadocJar(type: Jar, dependsOn:javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
 }
+
+
 artifacts {
     archives javadocJar
     archives sourcesJar
 }
+
 Properties properties = new Properties()
-
-
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
-        userOrg = "jfrogcwp"
+        userOrg ="jfrogcwp"
         repo = "maven"
-        name = "xregister-api"
+        name = "xregister-compiler"
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
@@ -104,7 +85,7 @@ bintray {
     }
 }
 
-javadoc { //jav doc采用utf-8编码否则会报“GBK的不可映射字符”错误
+javadoc {
     options {
         encoding "UTF-8"
         charSet 'UTF-8'

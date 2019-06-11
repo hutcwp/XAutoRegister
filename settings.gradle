@@ -1,1 +1,1 @@
-include ':app', ':annotation', ':compiler', ':api'
+include ':sample', ':xregister-annotation', ':xregister-compiler', ':xregister-api'

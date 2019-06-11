@@ -34,7 +34,8 @@ public class Logger {
 
     public void error(Throwable error) {
         if (null != error) {
-            msg.printMessage(Diagnostic.Kind.ERROR, PREFIX_OF_LOGGER + "An exception is encountered, [" + error.getMessage() + "]" + "\n" + formatStackTrace(error.getStackTrace()));
+            msg.printMessage(Diagnostic.Kind.ERROR, PREFIX_OF_LOGGER + "An exception is encountered, ["
+                    + error.getMessage() + "]" + "\n" + formatStackTrace(error.getStackTrace()));
         }
     }
 
