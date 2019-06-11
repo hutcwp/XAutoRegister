@@ -42,7 +42,6 @@ public class AutoRegisterProcessor extends AbstractProcessor {
 
     private boolean isGenenrate = false;
 
-    // key为要被注入到的类名【Manager】，value是注入的类名集合
     private Map<String, RegisterUnit> registerMap = new HashMap<>();
 
     @Override

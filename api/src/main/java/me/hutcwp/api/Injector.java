@@ -1,7 +1,7 @@
 package me.hutcwp.api;
 
 /**
- * ×¢ÈëÆ÷
+ * æ³¨å…¥å™¨
  */
 public class Injector {
 

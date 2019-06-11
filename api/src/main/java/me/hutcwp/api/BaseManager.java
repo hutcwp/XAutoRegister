@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ±»×¢ÈëÀàµÄ»ù´¡Àà
+ * è¢«æ³¨å…¥ç±»çš„åŸºç¡€ç±»
  */
 @RegisterTarget()
 public abstract class BaseManager<T extends IRegister> {
