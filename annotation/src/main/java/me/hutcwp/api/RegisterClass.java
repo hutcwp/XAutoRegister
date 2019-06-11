@@ -1,15 +1,11 @@
 package me.hutcwp.api;
 
 import java.lang.annotation.ElementType;
-import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+@Target(ElementType.ANNOTATION_TYPE)
 @Retention(RetentionPolicy.CLASS)
-@Target(ElementType.TYPE)
-@Inherited
-@RegisterClass
-public @interface AutoRegister {
-    Class<?> targetClass();
+public @interface RegisterClass {
 }

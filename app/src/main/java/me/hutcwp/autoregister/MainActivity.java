@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         String s = "当前自动注入的managerA data size is " + new ManagerA().getData().size();
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
 
-        String s2 = "当前自动注入的managerB data size is " + new ManagerB().getData().size();
-        Toast.makeText(this, s2, Toast.LENGTH_LONG).show();
+        // String s2 = "当前自动注入的managerB data size is " + new ManagerB().getData().size();
+        // Toast.makeText(this, s2, Toast.LENGTH_LONG).show();
     }
 }

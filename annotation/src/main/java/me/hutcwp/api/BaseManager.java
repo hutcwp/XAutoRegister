@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * è¢«æ³¨å…¥ç±»çš„åŸºç¡€ç±»
+ * ±»×¢ÈëÀàµÄ»ù´¡Àà
  */
-public abstract class BaseManager {
+@RegisterTarget()
+public abstract class BaseManager<T extends IRegister> {
 
     public BaseManager() {
         Injector.autoRegister(this);
     }
 
-    private List<IRegister> mDATA = new ArrayList<>();
+    private List<T> mDATA = new ArrayList<>();
 
-    public void autoRegister(IRegister register) {
+    public void autoRegister(T register) {
         mDATA.add(register);
     }
 
-    public List<IRegister> getData() {
+    public List<T> getData() {
         return mDATA;
     }
-
 }

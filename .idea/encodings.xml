@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM" />
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/annotation/src/main/java/me/hutcwp/api/BaseManager.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/annotation/src/main/java/me/hutcwp/api/IRegister.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/annotation/src/main/java/me/hutcwp/api/Injector.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/compiler/src/main/java/me/hutcwp/compiler/AutoRegisterProcessor.java" charset="GBK" />
+  </component>
 </project>

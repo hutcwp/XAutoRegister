@@ -1,7 +1,7 @@
 package me.hutcwp.api;
 
 /**
- * æ³¨å…¥ç±»æ¥å£
+ * ×¢ÈëÀà½Ó¿Ú
  */
 public interface IRegister {
 
