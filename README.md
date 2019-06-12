@@ -44,6 +44,21 @@ public abstract class InjectData implements IRegister {
     public abstract String name();
 }
 
+//具体实现类A
+public class InjectDataSubA extends InjectData {
+    @Override
+    public String name() {
+        return "InjectDataSubA";
+    }
+}
+
+//具体实现类B
+public class InjectDataSubB extends InjectData {
+    @Override
+    public String name() {
+        return "InjectDataSubB";
+    }
+}
 ```
 
 3. 业务调用
